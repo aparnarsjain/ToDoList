@@ -11,4 +11,7 @@ Completed user stories:
 - [x] The items are persisted in text files
 - [x] On long tap, the items are removed.
  
+####Optional-
+- [x] All required stories use sqlite instead of text files
+
 ####Preview-
