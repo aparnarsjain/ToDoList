@@ -41,10 +41,7 @@ public class ListPage extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
                 Item item = (Item) adapter.getItemAtPosition(position);
                 Intent intent = new Intent(ListPage.this, EditItemActivity.class);
-                intent.putExtra("title", item.text);
                 intent.putExtra("item", item);
-                intent.putExtra("position", position);
-//                intent.putStringArrayListExtra("allItems", items);
                 startActivityForResult(intent, REQUEST_CODE);
             }
         });
