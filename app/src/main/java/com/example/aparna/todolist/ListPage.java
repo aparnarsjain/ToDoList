@@ -51,7 +51,7 @@ public class ListPage extends AppCompatActivity {
                     @Override
                     public boolean onItemLongClick(AdapterView<?> adapter, View item, int pos, long id) {
                         Item itemToDelete = items.get(pos);
-                        if(deleteItem(itemToDelete.id)) {
+                        if(deleteItem(itemToDelete.getId())) {
                             readItems();
                             return true;
                         }
@@ -77,9 +77,9 @@ public class ListPage extends AppCompatActivity {
         EditText etNewItem = (EditText) findViewById(R.id.etNewItem);
         String itemText = etNewItem.getText().toString();
         Item newItem = new Item();
-        newItem.text = itemText;
+        newItem.setText(itemText);
         etNewItem.setText("");
-        newItem.id = TodoListSqlLiteDB.getInstance(this).addorUpdateItem(newItem);
+        newItem.setId(TodoListSqlLiteDB.getInstance(this).addorUpdateItem(newItem));
         itemsAdapter.add(newItem);
         InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(etNewItem.getWindowToken(), 0);

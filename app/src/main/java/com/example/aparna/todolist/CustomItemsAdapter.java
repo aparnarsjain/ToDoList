@@ -30,7 +30,7 @@ public class CustomItemsAdapter extends ArrayAdapter<Item> {
         TextView tvText = (TextView) convertView.findViewById(R.id.tvText);
         // Populate the data into the template view using the data object
         tvId.setText(Long.toString(position + 1));
-        tvText.setText(item.text);
+        tvText.setText(item.getText());
         // Return the completed view to render on screen
         return convertView;
     }

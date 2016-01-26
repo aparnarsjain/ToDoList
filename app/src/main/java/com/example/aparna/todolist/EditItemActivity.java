@@ -25,13 +25,13 @@ public class EditItemActivity extends AppCompatActivity {
 
         item = (Item) getIntent().getSerializableExtra("item");
         editTextView = (EditText)findViewById(R.id.editText);
-        editTextView.setText(item.text);
-        editTextView.setSelection(item.text.length());
+        editTextView.setText(item.getText());
+        editTextView.setSelection(item.getText().length());
     }
     public  void onSave(View v) {
         Intent data = new Intent();
         String editedText = editTextView.getText().toString();
-        item.text = editedText;
+        item.setText(editedText);
         TodoListSqlLiteDB.getInstance(this).addorUpdateItem(item);
         setResult(RESULT_OK, data);
         finish();

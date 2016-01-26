@@ -3,4 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="goblinGreen">#168686</color>
+    <color name="lvHeaderDividerColor">#168686</color>
+    <color name="lvDividerColor">#E0E0E0</color>
+
+    <color name="lightgrey">#E0E0E0</color>
 </resources>

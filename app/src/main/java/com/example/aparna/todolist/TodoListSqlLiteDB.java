@@ -93,14 +93,14 @@ public class TodoListSqlLiteDB extends SQLiteOpenHelper {
         db.beginTransaction();
         try {
             ContentValues values = new ContentValues();
-            values.put(KEY_ITEM_TEXT, item.text);
+            values.put(KEY_ITEM_TEXT, item.getText());
 
-            if ((Long)item.id != null && (Long)item.id > 0) { //TODO check this > 0 again
+            if ((Long)item.getId()!= null && (Long)item.getId()> 0) { //TODO check this > 0 again
                 // Get the primary key of the user we just updated
-                int rows = db.update(TABLE_ITEMS, values, KEY_ITEM_ID + "=?", new String[]{String.valueOf(item.id)});
+                int rows = db.update(TABLE_ITEMS, values, KEY_ITEM_ID + "=?", new String[]{String.valueOf(item.getId())});
                 if (rows == 1){
                     db.setTransactionSuccessful();
-                    return item.id;
+                    return item.getId();
                 }
             } else {
                 // user with this userName did not already exist, so insert new user
@@ -129,8 +129,8 @@ public class TodoListSqlLiteDB extends SQLiteOpenHelper {
             if (cursor.moveToFirst()) {
                 do {
                     Item newItem = new Item();
-                    newItem.text = cursor.getString(cursor.getColumnIndex(KEY_ITEM_TEXT));
-                    newItem.id = cursor.getLong(cursor.getColumnIndex(KEY_ITEM_ID));
+                    newItem.setText(cursor.getString(cursor.getColumnIndex(KEY_ITEM_TEXT)));
+                    newItem.setId(cursor.getLong(cursor.getColumnIndex(KEY_ITEM_ID)));
                     items.add(newItem);
                 } while(cursor.moveToNext());
             }
